@@ -15,10 +15,12 @@ namespace buEngineSDK {
 
   void 
   Actor::addComponent(Component* _component) {
+    m_components.push_back(_component);
   }
 
   void 
   Actor::addComponent(ComponentType::E _type) {
+    
   }
 
   void 
@@ -45,6 +47,7 @@ namespace buEngineSDK {
 
   void 
   Actor::setName(string _name) {
+    m_name = _name;
   }
 
   string 
@@ -58,6 +61,9 @@ namespace buEngineSDK {
 
   void 
   Actor::ui() {
+    for (auto& component : m_components) {
+      component->ui();
+    }
   }
 
   vector<Component*>& 

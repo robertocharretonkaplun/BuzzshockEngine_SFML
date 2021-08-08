@@ -29,10 +29,7 @@ namespace buEngineSDK {
       ImGui::Separator();
       vector2UI("Position", m_pos, "##X0", "##Y0");
       vector2UI("Rotation", m_rot, "##X1", "##Y1");
-      vector2UI("Scale", m_scal  , "##X2", "##Y2");
-
-      ImGui::Separator();
-
+      vector2UI("Scale   ", m_scal  , "##X2", "##Y2");
       ImGui::TreePop();
     }
   }

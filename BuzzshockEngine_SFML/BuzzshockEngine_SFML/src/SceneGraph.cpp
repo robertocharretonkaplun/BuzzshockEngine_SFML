@@ -82,7 +82,7 @@ namespace buEngineSDK {
       ImGui::SameLine();
       static char str1[128] = "";
       ImGui::SameLine();
-      ImGui::InputText(" ", str1, IM_ARRAYSIZE(str1));
+      ImGui::InputText(" ", node.getActor().getName().data(), IM_ARRAYSIZE(str1));
       ImGui::Separator();
       node.getActor().ui();
       ImGui::Separator();
@@ -118,7 +118,12 @@ namespace buEngineSDK {
         ImGui::EndCombo();
       }
       if (ImGui::Button("Add Component", ImVec2(330, 20))) {
-          node.getActor().addComponent((buEngineSDK::ComponentType::E) m_tempComponentType);
+          // Add transform component
+          if (m_tempComponentType == buEngineSDK::ComponentType::TRANSFORM) {
+            Transform* pTransform = new Transform;
+            pTransform->init();
+            node.getActor().addComponent(pTransform);
+          }
       }
     }
 

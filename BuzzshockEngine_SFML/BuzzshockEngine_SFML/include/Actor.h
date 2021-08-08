@@ -3,6 +3,7 @@
 #include <Component.h>
 
 namespace buEngineSDK {
+
 	class Actor	{
 	public:
 		Actor()  = default;
