@@ -5,16 +5,16 @@ namespace buEngineSDK {
   int 
   BaseApp::run() {
     init();
-		sf::RenderWindow window(sf::VideoMode(1600, 1000), "Buzzshock Engine SFML");
+		sf::RenderWindow window(sf::VideoMode(1600, 900), "Buzzshock Engine SFML");
 		window.setFramerateLimit(60);
 		ImGui::SFML::Init(window);
 		style();
 		sf::CircleShape shape(100.f);
     
-		shape.setFillColor(sf::Color::Green);
+		shape.setFillColor(sf::Color::Yellow);
 		shape.rotate(100);
 		shape.setPosition(500, 500);
-
+    
 		sf::Clock deltaClock;
 		while (window.isOpen()) {
 			sf::Event event;
@@ -36,7 +36,11 @@ namespace buEngineSDK {
 			ImGui::SFML::Update(window, deltaClock.restart());
 			MainMenu();
       properties();
+      m_graphman.ui();
       shape.setPosition(m_position[0], m_position[1]);
+      shape.setRotation(m_rotation[0]);
+      shape.setRadius(m_scale[0]);
+
 			window.clear();
 			window.draw(shape);
 			ImGui::SFML::Render(window);
@@ -50,8 +54,14 @@ namespace buEngineSDK {
   void 
   BaseApp::init() {
     m_position = new float[2];
+    m_scale = new float[2];
+    m_rotation = new float[2];
     m_position[0] = 0.0f;
     m_position[1] = 0.0f;
+    m_scale[0] = 100.0f;
+    m_scale[1] = 0.0f;
+    m_rotation[0] = 0.0f;
+    m_rotation[1] = 0.0f;
   }
 
   void 
@@ -157,7 +167,7 @@ namespace buEngineSDK {
   }
   
   void 
-  BaseApp::vec3Control(string label, float* values, float resetValues, float columnWidth) {
+  BaseApp::vec3Control(string label, float* values, string _id0, string _id1, float resetValues, float columnWidth) {
 
     ImGui::Text(label.c_str());
     ImGui::SameLine();
@@ -180,7 +190,7 @@ namespace buEngineSDK {
 
     // slider will fill the space and leave 100 pixels for the label
     ImGui::PushItemWidth(-200);
-    ImGui::DragFloat("##X", &values[0], 0.1f);
+    ImGui::DragFloat(_id0.c_str(), &values[0], 0.1f);
     ImGui::SameLine();
 
     ImGui::PushStyleColor(ImGuiCol_Button, ImVec4{ 0.2f, 0.7f, 0.2f, 1.0f });
@@ -200,16 +210,16 @@ namespace buEngineSDK {
 
     // slider will fill the space and leave 100 pixels for the label
     ImGui::PushItemWidth(-100);
-    ImGui::DragFloat("##Y", &values[1], 0.1f);
-    
+    ImGui::DragFloat(_id1.c_str(), &values[1], 0.1f);
+    //ImGui::PopID();
   }
   
   void 
   BaseApp::properties() {
-    ImGui::Begin("Propertiies");
-    vec3Control("Position", m_position);
-    vec3Control("Rotation", m_position);
-    vec3Control("Scale   ", m_position);
+    ImGui::Begin("Properties2");
+    vec3Control("Position", m_position, "##X0", "##Y0");
+    vec3Control("Rotation", m_rotation, "##X1", "##Y1");
+    vec3Control("Scale   ", m_scale,    "##X2", "##Y2");
     ImGui::End();
   }
 }

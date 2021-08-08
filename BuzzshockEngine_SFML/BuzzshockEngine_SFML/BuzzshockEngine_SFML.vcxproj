@@ -177,15 +177,24 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\Actor.cpp" />
     <ClCompile Include="src\BaseApp.cpp" />
     <ClCompile Include="src\GraphicsAPI.cpp" />
     <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\Node.cpp" />
+    <ClCompile Include="src\SceneGraph.cpp" />
+    <ClCompile Include="src\Transform.cpp" />
     <ClCompile Include="src\Window.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="include\Actor.h" />
     <ClInclude Include="include\BaseApp.h" />
+    <ClInclude Include="include\Component.h" />
     <ClInclude Include="include\GraphicsAPI.h" />
+    <ClInclude Include="include\Node.h" />
     <ClInclude Include="include\Prerequisites.h" />
+    <ClInclude Include="include\SceneGraph.h" />
+    <ClInclude Include="include\Transform.h" />
     <ClInclude Include="include\Window.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

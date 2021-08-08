@@ -31,6 +31,18 @@
     <Filter Include="Source Files\BaseApp">
       <UniqueIdentifier>{56de592b-8553-4e4c-b6ba-3fd7931b21c4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\SceneGraph">
+      <UniqueIdentifier>{ac148555-8a2e-4913-b8da-aeee62690ef6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\SceneGraph">
+      <UniqueIdentifier>{9cf9ba94-da1f-4117-86ae-eb5a6eb9a189}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\ECS">
+      <UniqueIdentifier>{1edb3b90-03a9-4c29-8e50-cfa6af6242e9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ECS">
+      <UniqueIdentifier>{4611f7f1-1fa4-49f8-ad18-1035246df81a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp">
@@ -45,6 +57,18 @@
     <ClCompile Include="src\BaseApp.cpp">
       <Filter>Source Files\BaseApp</Filter>
     </ClCompile>
+    <ClCompile Include="src\SceneGraph.cpp">
+      <Filter>Source Files\SceneGraph</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Node.cpp">
+      <Filter>Source Files\ECS</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Actor.cpp">
+      <Filter>Source Files\ECS</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Transform.cpp">
+      <Filter>Source Files\ECS</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\Prerequisites.h">
@@ -58,6 +82,21 @@
     </ClInclude>
     <ClInclude Include="include\BaseApp.h">
       <Filter>Header Files\BaseApp</Filter>
+    </ClInclude>
+    <ClInclude Include="include\SceneGraph.h">
+      <Filter>Header Files\SceneGraph</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Node.h">
+      <Filter>Header Files\ECS</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Actor.h">
+      <Filter>Header Files\ECS</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Component.h">
+      <Filter>Header Files\ECS</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Transform.h">
+      <Filter>Header Files\ECS</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
