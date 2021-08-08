@@ -73,6 +73,21 @@ namespace buEngineSDK {
   void 
   SceneGraph::worldOutlinerUI() {
     ImGui::Begin("World Outliner");
+    ImGui::SliderInt("Node", &m_currnode, 0, m_nodes.size() - 1);
+    for (auto& node : m_nodes) {
+      if (ImGui::TreeNode(node.getName().c_str())) {
+        if (ImGui::TreeNode(node.getActor().getName().c_str())) {
+          for (auto &components : node.getActor().getComponents()) {
+            if (ImGui::TreeNode(components->getName().c_str())) {
+
+              ImGui::TreePop();
+            }
+          }
+          ImGui::TreePop();
+        }
+        ImGui::TreePop();
+      }
+    }
     ImGui::End();
   }
   
@@ -94,7 +109,7 @@ namespace buEngineSDK {
       ImGui::Separator();
       node.getActor().ui();
       ImGui::Separator();
-      const char* items[] = { "Transform", "Material", "Rigidbody", "Model", "Light" };
+      const char* items[] = { "Transform", "Material", "Rigidbody", "Model", "Circle shape" };
       static const char* current_item = NULL;
 
       if (ImGui::BeginCombo("##combo", current_item)) {

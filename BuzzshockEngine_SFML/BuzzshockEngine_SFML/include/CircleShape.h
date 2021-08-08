@@ -41,6 +41,8 @@ namespace buEngineSDK {
 
 		sf::CircleShape m_shape;
 
+		sf::Color m_color;
+
 		// componentType: This object store the type of component that is the class.
 		buEngineSDK::ComponentType::E m_componentType = buEngineSDK::ComponentType::E::CIRCLE_SHAPE;
 	};
