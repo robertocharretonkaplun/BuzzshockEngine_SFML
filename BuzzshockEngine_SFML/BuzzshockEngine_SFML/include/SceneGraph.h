@@ -3,6 +3,7 @@
 #include <Node.h>
 namespace buEngineSDK {
   class Transform;
+  class CircleShape;
   class SceneGraph {
   public:
     SceneGraph()  = default;
@@ -15,7 +16,7 @@ namespace buEngineSDK {
     update();
 
     void
-    render();
+    render(sf::RenderWindow& _window);
 
     void
     destroy();
@@ -31,6 +32,9 @@ namespace buEngineSDK {
 
     void
     propertiesUI();
+    
+    vector<Node> &
+    getNodes();
   private:
     vector<Node> m_nodes;
     int m_currnode = 0;

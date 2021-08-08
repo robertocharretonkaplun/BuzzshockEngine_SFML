@@ -1,16 +1,38 @@
 #include "Actor.h"
-
+#include "CircleShape.h"
+#include "Transform.h"
 namespace buEngineSDK {
   void 
   Actor::init() {
+    t = new Transform;
   }
 
   void 
   Actor::update() {
+      
+    for (auto& component : m_components) {
+      if (component->getType() == buEngineSDK::ComponentType::E::TRANSFORM) {
+        auto transform = reinterpret_cast<Transform*>(component);
+        t = transform;
+        //circleShape->update(transform);
+      }
+      if (component->getType() == buEngineSDK::ComponentType::E::CIRCLE_SHAPE) {
+        auto circleShape = reinterpret_cast<CircleShape*>(component);
+        circleShape->update(t);
+        //circleShape->getShape().setPosition(t->m_pos[0], t->m_pos[1]);
+      }
+      component->update();
+    }
   }
 
   void 
-  Actor::render() {
+  Actor::render(sf::RenderWindow& _window) {
+    for (auto& component : m_components) {
+      if (component->getType() == buEngineSDK::ComponentType::E::CIRCLE_SHAPE) {
+        auto circleShape = reinterpret_cast<CircleShape*>(component);
+        circleShape->render(_window);
+      }
+    }
   }
 
   void 

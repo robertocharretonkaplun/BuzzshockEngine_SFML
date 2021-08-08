@@ -3,7 +3,8 @@
 #include <Component.h>
 
 namespace buEngineSDK {
-
+	class CircleShape;
+	class Transform;
 	class Actor	{
 	public:
 		Actor()  = default;
@@ -16,7 +17,7 @@ namespace buEngineSDK {
 		update();
 		
 		void
-		render();
+		render(sf::RenderWindow& _window);
 
 		void
 		addComponent(Component * _component);
@@ -70,5 +71,7 @@ namespace buEngineSDK {
 
 		// Child: This object works as a child reference for the class.
 		Actor * m_child;
+
+		Transform* t;
 	};
 }

@@ -1,5 +1,6 @@
 #include "SceneGraph.h"
 #include "Transform.h"
+#include "CircleShape.h"
 namespace buEngineSDK {
   void 
   SceneGraph::init() {
@@ -7,10 +8,17 @@ namespace buEngineSDK {
 
   void 
   SceneGraph::update() {
+
+    for (auto& node : m_nodes) {
+      node.getActor().update();
+    }
   }
 
   void 
-  SceneGraph::render() {
+  SceneGraph::render(sf::RenderWindow& _window) {
+    for (auto& node : m_nodes) {
+      node.getActor().render(_window);
+    }
   }
 
   void 
@@ -124,10 +132,21 @@ namespace buEngineSDK {
             pTransform->init();
             node.getActor().addComponent(pTransform);
           }
+
+          if (m_tempComponentType == buEngineSDK::ComponentType::CIRCLE_SHAPE) {
+            CircleShape* pCircleShape = new CircleShape;
+            pCircleShape->init();
+            node.getActor().addComponent(pCircleShape);
+          }
       }
     }
 
 
     ImGui::End();
+  }
+  
+  vector<Node>& 
+  SceneGraph::getNodes() {
+    return m_nodes;
   }
 }
