@@ -36,6 +36,12 @@ namespace buEngineSDK {
     vector<Node> &
     getNodes();
   private:
+    void
+    createEmptyActor();
+
+    void
+    createCircleShapeActor();
+  private:
     vector<Node> m_nodes;
     int m_currnode = 0;
     int m_tempComponentType;

@@ -8,8 +8,7 @@ namespace buEngineSDK {
 			TRANSFORM = 0,
 			SPRITE = 1,
 			TEXTURE = 2,
-			SHAPE = 3,
-			CIRCLE_SHAPE = 4,
+			CIRCLE_SHAPE = 3,
 		};
 	}
 

@@ -39,31 +39,14 @@ namespace buEngineSDK {
   SceneGraph::basicsUI() {
     ImGui::Begin("Basics");
     ImVec2 btnSize = { 250, 50 };
+    // Button for debuggin purposes
     if (ImGui::Button("Custom Actor", btnSize)) {
     }
     if (ImGui::Button("Empty Actor", btnSize)) {
-      Node * pNode;
-      pNode = new Node;
-      Node newNode;
-      newNode.setChild(pNode);
-      string nodeName = newNode.getName();
-      newNode.setName(nodeName);
-
-      // Set the actor
-      Actor pActor;
-      string actorName = pActor.getName();
-      pActor.setName(actorName);
-      pActor.init();
-      newNode.setActor(pActor);
-
-      // Add transform component
-      Transform* pTransform =  new Transform;
-      pTransform->init();
-      newNode.getActor().addComponent(pTransform);
-
-      m_nodes.push_back(newNode);
+      createEmptyActor();
     }
     if (ImGui::Button("Circle Actor", btnSize)) {
+      createCircleShapeActor();
     }
     if (ImGui::Button("Rectangle Actor", btnSize)) {
     }
@@ -109,7 +92,7 @@ namespace buEngineSDK {
       ImGui::Separator();
       node.getActor().ui();
       ImGui::Separator();
-      const char* items[] = { "Transform", "Material", "Rigidbody", "Model", "Circle shape" };
+      const char* items[] = { "Transform", "Material", "Rigidbody", "Circle shape" };
       static const char* current_item = NULL;
 
       if (ImGui::BeginCombo("##combo", current_item)) {
@@ -129,9 +112,6 @@ namespace buEngineSDK {
               m_tempComponentType = n;
             }
             if (n == 3) {
-              m_tempComponentType = n;
-            }
-            if (n == 4) {
               m_tempComponentType = n;
             }
           }
@@ -163,5 +143,59 @@ namespace buEngineSDK {
   vector<Node>& 
   SceneGraph::getNodes() {
     return m_nodes;
+  }
+
+  void 
+  SceneGraph::createEmptyActor() {
+    // Create node
+    Node* pNode;
+    pNode = new Node;
+    Node newNode;
+    newNode.setChild(pNode);
+    string nodeName = newNode.getName();
+    newNode.setName(nodeName);
+
+    // Set the actor
+    Actor pActor;
+    string actorName = pActor.getName();
+    pActor.setName(actorName);
+    pActor.init();
+    newNode.setActor(pActor);
+
+    // Add transform component
+    Transform* pTransform = new Transform;
+    pTransform->init();
+    newNode.getActor().addComponent(pTransform);
+
+    m_nodes.push_back(newNode);
+  }
+  
+  void 
+  SceneGraph::createCircleShapeActor() {
+    Node* pNode;
+    pNode = new Node;
+    Node newNode;
+    newNode.setChild(pNode);
+    string nodeName = newNode.getName();
+    newNode.setName(nodeName);
+
+    // Set the actor
+    Actor pActor;
+    string actorName = pActor.getName();
+    pActor.setName(actorName);
+    pActor.init();
+    newNode.setActor(pActor);
+
+    // Add transform component
+    Transform* pTransform = new Transform;
+    pTransform->init();
+    newNode.getActor().addComponent(pTransform);
+
+    // Add circle shape component
+    CircleShape* pCircleShape = new CircleShape;
+    pCircleShape->init();
+    newNode.getActor().addComponent(pCircleShape);
+
+    m_nodes.push_back(newNode);
   }
 }

@@ -29,8 +29,5 @@ namespace buEngineSDK {
     MainMenu();
 	private:
     SceneGraph m_graphman;
-    float * m_position;
-    float * m_rotation;
-    float * m_scale;
 	};
 }

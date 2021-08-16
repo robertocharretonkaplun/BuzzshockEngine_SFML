@@ -9,11 +9,6 @@ namespace buEngineSDK {
 		window.setFramerateLimit(60);
 		ImGui::SFML::Init(window);
 		style();
-		//sf::CircleShape shape(100.f);
-    
-		//shape.setFillColor(sf::Color::Yellow);
-		//shape.rotate(100);
-		//shape.setPosition(500, 500);
     
 		sf::Clock deltaClock;
 		while (window.isOpen()) {
@@ -37,13 +32,8 @@ namespace buEngineSDK {
 			MainMenu();
       m_graphman.ui();
       m_graphman.update();
-      //shape.setPosition(m_position[0], m_position[1]);
-      //shape.setRotation(m_rotation[0]);
-      //shape.setRadius(m_scale[0]);
-
 			window.clear();
       m_graphman.render(window);
-			//window.draw(shape);
 			ImGui::SFML::Render(window);
 			window.display();
 		}
@@ -54,15 +44,6 @@ namespace buEngineSDK {
 
   void 
   BaseApp::init() {
-    m_position = new float[2];
-    m_scale = new float[2];
-    m_rotation = new float[2];
-    m_position[0] = 0.0f;
-    m_position[1] = 0.0f;
-    m_scale[0] = 100.0f;
-    m_scale[1] = 0.0f;
-    m_rotation[0] = 0.0f;
-    m_rotation[1] = 0.0f;
   }
 
   void 
