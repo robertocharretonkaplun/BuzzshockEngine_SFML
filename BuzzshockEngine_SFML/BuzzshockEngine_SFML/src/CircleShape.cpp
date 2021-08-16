@@ -25,7 +25,7 @@ namespace buEngineSDK {
     m_shape.setRadius(_transform->m_scal[0]);
     m_shape.setOrigin(m_origin[0], m_origin[1]);
     m_shape.setOutlineThickness(m_outlineThickness);
-
+    m_shape.setOutlineColor(m_outlineColor);
   }
 
   void 
@@ -59,7 +59,8 @@ namespace buEngineSDK {
       ImGui::Separator();
       // Outline
       if (ImGui::TreeNode("Outline Thickness")) {
-      ImGui::Separator();
+        ImGui::Separator();
+        outlineColorUI();
         ImGui::SliderFloat("Outline Thickness", &m_outlineThickness, 0.0f, 10.0f);
         ImGui::TreePop();
       }
@@ -162,6 +163,41 @@ namespace buEngineSDK {
           }
           if (n == 4) {
             m_color = sf::Color::Yellow;
+          }
+        }
+        if (is_selected)
+          ImGui::SetItemDefaultFocus();   // You may set the initial focus when opening the combo (scrolling + for keyboard navigation support)
+      }
+      ImGui::EndCombo();
+    }
+  }
+
+  void 
+  CircleShape::outlineColorUI() {
+    const char* items[] = { "Red", "Green", "Blue", "White", "Yellow" };
+    static const char* current_item = NULL;
+
+    if (ImGui::BeginCombo("Outline color", current_item)) {
+      for (int n = 0; n < IM_ARRAYSIZE(items); n++) {
+
+        bool is_selected = (current_item == items[n]); // You can store your selection however you want, outside or inside your objects
+        if (ImGui::Selectable(items[n], is_selected)) {
+          current_item = items[n];
+
+          if (n == 0) {
+            m_outlineColor = sf::Color::Red;
+          }
+          if (n == 1) {
+            m_outlineColor = sf::Color::Green;
+          }
+          if (n == 2) {
+            m_outlineColor = sf::Color::Blue;
+          }
+          if (n == 3) {
+            m_outlineColor = sf::Color::White;
+          }
+          if (n == 4) {
+            m_outlineColor = sf::Color::Yellow;
           }
         }
         if (is_selected)

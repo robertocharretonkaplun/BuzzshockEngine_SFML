@@ -45,6 +45,9 @@ namespace buEngineSDK {
 
 		void
 		circleColorUI();
+		
+		void
+		outlineColorUI();
 
 		void
 		textureUI();
@@ -56,6 +59,8 @@ namespace buEngineSDK {
 		sf::CircleShape m_shape;
 
 		sf::Color m_color;
+
+		sf::Color m_outlineColor;
 
 		float* m_origin;
 

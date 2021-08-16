@@ -6,7 +6,8 @@ This repository is made for educational purposes, this project may include a ful
 - Circle Shape component: Can change shape color.
 - Circle Shape component: Can change outline thickness.
 - Circle Shape component: Can set a texture from file.
+- Circle Shape component: Can Change outline color.
 - Scene Graph: Can create empty actors.
-- Scene Graph: Can create Circle Shape Actors.
+- Scene Graph: Can create Circle Shape actors.
 - Scene Graph: Can create 'N' amount of actors.
-- Scene Graph: Actos can add 'Transform' and 'Circle Shape' components.
+- Scene Graph: Actors can add 'Transform' and 'Circle Shape' components.
