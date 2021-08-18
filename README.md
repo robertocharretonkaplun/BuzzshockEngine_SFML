@@ -1,6 +1,16 @@
 # BuzzshockEngine_SFML
 This repository is made for educational purposes, this project may include a full abstraction from SFML library and the basic managers and resources.
 
+## Updates 17 AGU 2021:
+- Rectangle Shape component: Can change origin position.
+- Rectangle Shape component: Can change shape color.
+- Rectangle Shape component: Can change outline thickness.
+- Rectangle Shape component: Can set a texture from file.
+- Rectangle Shape component: Can Change outline color.
+- Scene Graph: Can create empty actors.
+- Scene Graph: Can create Rectangle Shape actors.
+- Scene Graph: Actors can add 'Rectangle Shape' components.
+
 ## Updates 16 AGU 2021:
 - Circle Shape component: Can change origin position.
 - Circle Shape component: Can change shape color.
