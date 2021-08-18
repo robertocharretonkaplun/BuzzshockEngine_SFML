@@ -10,7 +10,7 @@ namespace buEngineSDK {
     m_pos[0] = 0.0f;
     m_pos[1] = 0.0f;
     m_scal[0] = 100.0f;
-    m_scal[1] = 0.0f;
+    m_scal[1] = 100.0f;
     m_rot[0] = 0.0f;
     m_rot[1] = 0.0f;
   }

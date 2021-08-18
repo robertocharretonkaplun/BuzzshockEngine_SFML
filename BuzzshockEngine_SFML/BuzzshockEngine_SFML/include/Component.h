@@ -6,9 +6,9 @@ namespace buEngineSDK {
 	namespace ComponentType {
 		enum E {
 			TRANSFORM = 0,
-			SPRITE = 1,
-			TEXTURE = 2,
-			CIRCLE_SHAPE = 3,
+			TEXTURE = 1,
+			CIRCLE_SHAPE = 2,
+			RECTANGLE_SHAPE = 3,
 		};
 	}
 

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -183,6 +183,7 @@
     <ClCompile Include="src\GraphicsAPI.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\Node.cpp" />
+    <ClCompile Include="src\RectangleShape.cpp" />
     <ClCompile Include="src\SceneGraph.cpp" />
     <ClCompile Include="src\Transform.cpp" />
     <ClCompile Include="src\Window.cpp" />
@@ -195,6 +196,7 @@
     <ClInclude Include="include\GraphicsAPI.h" />
     <ClInclude Include="include\Node.h" />
     <ClInclude Include="include\Prerequisites.h" />
+    <ClInclude Include="include\RectangleShape.h" />
     <ClInclude Include="include\SceneGraph.h" />
     <ClInclude Include="include\Transform.h" />
     <ClInclude Include="include\Window.h" />

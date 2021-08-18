@@ -4,6 +4,7 @@
 namespace buEngineSDK {
   class Transform;
   class CircleShape;
+  class RectangleShape;
   class SceneGraph {
   public:
     SceneGraph()  = default;
@@ -41,6 +42,9 @@ namespace buEngineSDK {
 
     void
     createCircleShapeActor();
+    
+    void
+    createRectangleShapeActor();
   private:
     vector<Node> m_nodes;
     int m_currnode = 0;

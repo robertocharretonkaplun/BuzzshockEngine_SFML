@@ -4,6 +4,7 @@
 
 namespace buEngineSDK {
 	class CircleShape;
+	class RectangleShape;
 	class Transform;
 	class Actor	{
 	public:

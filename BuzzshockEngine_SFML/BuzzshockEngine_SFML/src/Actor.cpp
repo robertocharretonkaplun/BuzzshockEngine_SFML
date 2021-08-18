@@ -1,5 +1,6 @@
 #include "Actor.h"
 #include "CircleShape.h"
+#include "RectangleShape.h"
 #include "Transform.h"
 namespace buEngineSDK {
   void 
@@ -21,6 +22,10 @@ namespace buEngineSDK {
         circleShape->update(t);
         //circleShape->getShape().setPosition(t->m_pos[0], t->m_pos[1]);
       }
+      if (component->getType() == buEngineSDK::ComponentType::E::RECTANGLE_SHAPE) {
+        auto rectangleShape = reinterpret_cast<RectangleShape*>(component);
+        rectangleShape->update(t);
+      }
       component->update();
     }
   }
@@ -31,6 +36,10 @@ namespace buEngineSDK {
       if (component->getType() == buEngineSDK::ComponentType::E::CIRCLE_SHAPE) {
         auto circleShape = reinterpret_cast<CircleShape*>(component);
         circleShape->render(_window);
+      }
+      if (component->getType() == buEngineSDK::ComponentType::E::RECTANGLE_SHAPE) {
+        auto rectangleShape = reinterpret_cast<RectangleShape*>(component);
+        rectangleShape->render(_window);
       }
     }
   }

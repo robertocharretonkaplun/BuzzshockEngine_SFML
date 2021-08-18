@@ -1,6 +1,7 @@
 #include "SceneGraph.h"
 #include "Transform.h"
 #include "CircleShape.h"
+#include "RectangleShape.h"
 namespace buEngineSDK {
   void 
   SceneGraph::init() {
@@ -49,6 +50,7 @@ namespace buEngineSDK {
       createCircleShapeActor();
     }
     if (ImGui::Button("Rectangle Actor", btnSize)) {
+      createRectangleShapeActor();
     }
     ImGui::End();
   }
@@ -92,7 +94,7 @@ namespace buEngineSDK {
       ImGui::Separator();
       node.getActor().ui();
       ImGui::Separator();
-      const char* items[] = { "Transform", "Material", "Rigidbody", "Circle shape" };
+      const char* items[] = { "Transform", "Texture", "Circle shape", "Rectanlge shape" };
       static const char* current_item = NULL;
 
       if (ImGui::BeginCombo("##combo", current_item)) {
@@ -121,18 +123,27 @@ namespace buEngineSDK {
         ImGui::EndCombo();
       }
       if (ImGui::Button("Add Component", ImVec2(330, 20))) {
-          // Add transform component
-          if (m_tempComponentType == buEngineSDK::ComponentType::TRANSFORM) {
-            Transform* pTransform = new Transform;
-            pTransform->init();
-            node.getActor().addComponent(pTransform);
-          }
 
-          if (m_tempComponentType == buEngineSDK::ComponentType::CIRCLE_SHAPE) {
-            CircleShape* pCircleShape = new CircleShape;
-            pCircleShape->init();
-            node.getActor().addComponent(pCircleShape);
-          }
+        // Add transform component
+        if (m_tempComponentType == buEngineSDK::ComponentType::TRANSFORM) {
+          Transform* pTransform = new Transform;
+          pTransform->init();
+          node.getActor().addComponent(pTransform);
+        }
+
+        // Add circle shape component
+        if (m_tempComponentType == buEngineSDK::ComponentType::CIRCLE_SHAPE) {
+          CircleShape* pCircleShape = new CircleShape;
+          pCircleShape->init();
+          node.getActor().addComponent(pCircleShape);
+        }
+        
+        // Add rectangle shape component
+        if (m_tempComponentType == buEngineSDK::ComponentType::RECTANGLE_SHAPE) {
+          RectangleShape* pRectangleShape = new RectangleShape;
+          pRectangleShape->init();
+          node.getActor().addComponent(pRectangleShape);
+        }
       }
     }
 
@@ -195,6 +206,35 @@ namespace buEngineSDK {
     CircleShape* pCircleShape = new CircleShape;
     pCircleShape->init();
     newNode.getActor().addComponent(pCircleShape);
+
+    m_nodes.push_back(newNode);
+  }
+  
+  void 
+  SceneGraph::createRectangleShapeActor() {
+    Node* pNode;
+    pNode = new Node;
+    Node newNode;
+    newNode.setChild(pNode);
+    string nodeName = newNode.getName();
+    newNode.setName(nodeName);
+
+    // Set the actor
+    Actor pActor;
+    string actorName = pActor.getName();
+    pActor.setName(actorName);
+    pActor.init();
+    newNode.setActor(pActor);
+
+    // Add transform component
+    Transform* pTransform = new Transform;
+    pTransform->init();
+    newNode.getActor().addComponent(pTransform);
+
+    // Add circle shape component
+    RectangleShape* pRectangleShape = new RectangleShape;
+    pRectangleShape->init();
+    newNode.getActor().addComponent(pRectangleShape);
 
     m_nodes.push_back(newNode);
   }
