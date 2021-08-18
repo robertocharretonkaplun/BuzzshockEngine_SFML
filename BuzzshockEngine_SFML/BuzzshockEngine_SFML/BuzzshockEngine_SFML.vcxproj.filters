@@ -75,6 +75,9 @@
     <ClCompile Include="src\RectangleShape.cpp">
       <Filter>Source Files\ECS</Filter>
     </ClCompile>
+    <ClCompile Include="src\Line.cpp">
+      <Filter>Source Files\ECS</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\Prerequisites.h">
@@ -108,6 +111,9 @@
       <Filter>Header Files\ECS</Filter>
     </ClInclude>
     <ClInclude Include="include\RectangleShape.h">
+      <Filter>Header Files\ECS</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Line.h">
       <Filter>Header Files\ECS</Filter>
     </ClInclude>
   </ItemGroup>

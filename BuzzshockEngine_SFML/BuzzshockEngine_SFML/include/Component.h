@@ -9,6 +9,7 @@ namespace buEngineSDK {
 			TEXTURE = 1,
 			CIRCLE_SHAPE = 2,
 			RECTANGLE_SHAPE = 3,
+			LINE = 4,
 		};
 	}
 
