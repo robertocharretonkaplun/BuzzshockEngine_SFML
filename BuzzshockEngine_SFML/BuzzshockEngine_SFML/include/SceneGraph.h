@@ -5,6 +5,7 @@ namespace buEngineSDK {
   class Transform;
   class CircleShape;
   class RectangleShape;
+  class Animator;
   class SceneGraph {
   public:
     SceneGraph()  = default;

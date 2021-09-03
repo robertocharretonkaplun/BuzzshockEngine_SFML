@@ -2,6 +2,8 @@
 #include "Transform.h"
 #include "CircleShape.h"
 #include "RectangleShape.h"
+#include "Animator.h"
+
 namespace buEngineSDK {
   void 
   SceneGraph::init() {
@@ -94,7 +96,7 @@ namespace buEngineSDK {
       ImGui::Separator();
       node.getActor().ui();
       ImGui::Separator();
-      const char* items[] = { "Transform", "Texture", "Circle shape", "Rectanlge shape" };
+      const char* items[] = { "Transform", "Texture", "Circle shape", "Rectanlge shape", "Line", "Animator" };
       static const char* current_item = NULL;
 
       if (ImGui::BeginCombo("##combo", current_item)) {
@@ -114,6 +116,12 @@ namespace buEngineSDK {
               m_tempComponentType = n;
             }
             if (n == 3) {
+              m_tempComponentType = n;
+            }
+            if (n == 4) {
+              m_tempComponentType = n;
+            }
+            if (n == 5) {
               m_tempComponentType = n;
             }
           }
@@ -143,6 +151,13 @@ namespace buEngineSDK {
           RectangleShape* pRectangleShape = new RectangleShape;
           pRectangleShape->init();
           node.getActor().addComponent(pRectangleShape);
+        }
+        
+        // Add Animator component
+        if (m_tempComponentType == buEngineSDK::ComponentType::ANIMATOR) {
+          Animator* pAnimator = new Animator;
+          pAnimator->init();
+          node.getActor().addComponent(pAnimator);
         }
       }
     }

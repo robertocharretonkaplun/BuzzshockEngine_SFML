@@ -10,6 +10,7 @@ namespace buEngineSDK {
 			CIRCLE_SHAPE = 2,
 			RECTANGLE_SHAPE = 3,
 			LINE = 4,
+			ANIMATOR = 5,
 		};
 	}
 

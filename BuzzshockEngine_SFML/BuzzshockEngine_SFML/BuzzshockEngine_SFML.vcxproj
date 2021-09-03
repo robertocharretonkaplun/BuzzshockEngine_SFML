@@ -178,6 +178,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="src\Actor.cpp" />
+    <ClCompile Include="src\Animator.cpp" />
     <ClCompile Include="src\BaseApp.cpp" />
     <ClCompile Include="src\CircleShape.cpp" />
     <ClCompile Include="src\GraphicsAPI.cpp" />
@@ -191,6 +192,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\Actor.h" />
+    <ClInclude Include="include\Animator.h" />
     <ClInclude Include="include\BaseApp.h" />
     <ClInclude Include="include\CircleShape.h" />
     <ClInclude Include="include\Component.h" />
