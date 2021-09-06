@@ -9,8 +9,11 @@ namespace buEngineSDK {
     m_shape.setPosition(500, 500);
     m_color = sf::Color::White;
     m_origin = new float[2];
+    m_tmpScale = new float[2];
     m_origin[0] = 0.0f;
     m_origin[1] = 0.0f;
+    m_tmpScale[0] = 0.0f;
+    m_tmpScale[1] = 0.0f;
   }
 
   void CircleShape::update()
@@ -23,6 +26,7 @@ namespace buEngineSDK {
     m_shape.setPosition(_transform->m_pos[0], _transform->m_pos[1]);
     m_shape.setRotation(_transform->m_rot[0]);
     m_shape.setRadius(_transform->m_scal[0]);
+    m_tmpScale = _transform->m_scal;
     m_shape.setOrigin(m_origin[0], m_origin[1]);
     m_shape.setOutlineThickness(m_outlineThickness);
     m_shape.setOutlineColor(m_outlineColor);
@@ -33,8 +37,8 @@ namespace buEngineSDK {
   }
 
   void 
-  CircleShape::render(sf::RenderWindow& _window) {
-    _window.draw(m_shape);
+  CircleShape::render(sf::RenderTexture& _scene) {
+    _scene.draw(m_shape);
     //_window.draw(m_sprite);
   }
 
@@ -47,6 +51,10 @@ namespace buEngineSDK {
       if (ImGui::TreeNode("Origin")) {
         ImGui::Separator();
         vector2UI("Origin", m_origin, "##O0", "##O1");
+        if (ImGui::Button("Center Origin")) {
+          m_origin[0] = m_tmpScale[0] / 2;
+          m_origin[1] = m_tmpScale[1] / 2;
+        }
         ImGui::TreePop();
       }
       ImGui::Separator();
@@ -210,16 +218,26 @@ namespace buEngineSDK {
   void 
   CircleShape::textureUI() {
     static char str1[128] = "";
+    string name;
+    ImGui::Text(m_texPath.c_str());
+    ImGui::Image(m_texture, sf::Vector2f(50.0f, 50.0f));
     ImGui::InputText("Texture Name", str1, IM_ARRAYSIZE(str1));
     if (ImGui::Button("Set texture")) {
       ImGui::SameLine();
-      string name = str1;
+      name = str1;
       string texPath = "Data/Textures/" + name;
+      m_texPath = texPath;
       if (m_texture.loadFromFile(texPath.c_str())) {
+        cout << "Texture load with path found in : " << m_texPath << endl;
         m_shape.setTexture(&m_texture);
       }
       else {
-        cout << "Texture not found : " << endl;
+        cout << "Texture not found : " << texPath << endl;
+        string texPath = "Data/Textures/DefaultTexture.png";
+        m_texPath = texPath;
+        cout << "Texture load with default path found in : " << texPath << endl;
+        m_texture.loadFromFile(texPath.c_str());
+        m_shape.setTexture(&m_texture);
       }
     }
   }

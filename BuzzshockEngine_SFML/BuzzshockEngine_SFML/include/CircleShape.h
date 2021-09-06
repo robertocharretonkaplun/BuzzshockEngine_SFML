@@ -21,7 +21,7 @@ namespace buEngineSDK {
 		render() override;
 
 		void
-		render(sf::RenderWindow & _window);
+		render(sf::RenderTexture& _scene);
 		
 		void
 		ui() override;
@@ -64,12 +64,15 @@ namespace buEngineSDK {
 
 		float* m_origin;
 
+		float* m_tmpScale;
+
 		float m_outlineThickness = 0.0f;
 
 		sf::Texture m_texture;
 
 		sf::Sprite m_sprite;
 
+		string m_texPath;
 
 		// componentType: This object store the type of component that is the class.
 		buEngineSDK::ComponentType::E m_componentType = buEngineSDK::ComponentType::E::CIRCLE_SHAPE;

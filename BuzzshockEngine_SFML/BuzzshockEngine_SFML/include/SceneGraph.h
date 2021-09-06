@@ -12,7 +12,7 @@ namespace buEngineSDK {
     ~SceneGraph() = default;
 
     void
-    init();
+    init(float _w, float _h);
 
     void 
     update();
@@ -50,5 +50,6 @@ namespace buEngineSDK {
     vector<Node> m_nodes;
     int m_currnode = 0;
     int m_tempComponentType;
+    sf::RenderTexture m_scene;
   };
 }

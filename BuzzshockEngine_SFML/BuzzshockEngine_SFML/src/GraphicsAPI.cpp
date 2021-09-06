@@ -2,7 +2,7 @@
 
 namespace buEngineSDK {
   void 
-  GraphicsAPI::CreateWindow() {
+  GraphicsAPI::createWindow() {
     m_window.create(sf::VideoMode(640, 480), "Buzzshock Engine SFML");
   }
 

@@ -6,6 +6,7 @@ namespace buEngineSDK {
   BaseApp::run() {
     init();
 		sf::RenderWindow window(sf::VideoMode(1600, 900), "Buzzshock Engine SFML");
+    m_graphman.init(1600, 900);
 		window.setFramerateLimit(60);
 		ImGui::SFML::Init(window);
 		style();
@@ -34,6 +35,7 @@ namespace buEngineSDK {
       m_graphman.update();
 			window.clear();
       m_graphman.render(window);
+      
 			ImGui::SFML::Render(window);
 			window.display();
 		}

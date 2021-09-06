@@ -1,6 +1,13 @@
 # BuzzshockEngine_SFML
 This repository is made for educational purposes, this project may include a full abstraction from SFML library and the basic managers and resources.
 
+## Updates 6 SEP 2021:
+- Scene Graph: Scene now is render in special render target on the class.
+- Rectangle Shape: Center origin button feature.
+- Circle Shape: Center origin button feature.
+- Rectangle Shape: Textures now have safe loading, if texture do not exist default text will be loaded.
+- Circle Shape: Textures now have safe loading, if texture do not exist default text will be loaded.
+
 ## Updates 02 SEP 2021:
 - Line component: Line base implementation (Pending to create implementation).
 - Animator component: Actor can create animator componentes(Pending testing with shapes and including update in actor).

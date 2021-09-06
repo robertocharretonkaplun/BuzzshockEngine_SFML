@@ -31,15 +31,15 @@ namespace buEngineSDK {
   }
 
   void 
-  Actor::render(sf::RenderWindow& _window) {
+  Actor::render( sf::RenderTexture& _scene) {
     for (auto& component : m_components) {
       if (component->getType() == buEngineSDK::ComponentType::E::CIRCLE_SHAPE) {
         auto circleShape = reinterpret_cast<CircleShape*>(component);
-        circleShape->render(_window);
+        circleShape->render(_scene);
       }
       if (component->getType() == buEngineSDK::ComponentType::E::RECTANGLE_SHAPE) {
         auto rectangleShape = reinterpret_cast<RectangleShape*>(component);
-        rectangleShape->render(_window);
+        rectangleShape->render(_scene);
       }
     }
   }

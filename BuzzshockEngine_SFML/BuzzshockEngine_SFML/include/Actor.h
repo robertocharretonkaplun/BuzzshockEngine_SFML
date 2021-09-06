@@ -18,7 +18,7 @@ namespace buEngineSDK {
 		update();
 		
 		void
-		render(sf::RenderWindow& _window);
+		render(sf::RenderTexture & _scene);
 
 		void
 		addComponent(Component * _component);

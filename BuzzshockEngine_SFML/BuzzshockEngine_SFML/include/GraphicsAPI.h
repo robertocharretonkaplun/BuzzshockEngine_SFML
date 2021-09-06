@@ -9,7 +9,7 @@ namespace buEngineSDK {
 		~GraphicsAPI() = default;
 
 		void 
-		CreateWindow();
+		createWindow();
 
 		void
 		setFrameLimit(int _limit);

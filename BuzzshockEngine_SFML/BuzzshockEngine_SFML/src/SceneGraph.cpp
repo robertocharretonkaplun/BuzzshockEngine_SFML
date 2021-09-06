@@ -6,7 +6,11 @@
 
 namespace buEngineSDK {
   void 
-  SceneGraph::init() {
+  SceneGraph::init(float _w, float _h) {
+    if (!m_scene.create(_w, _h))
+    {
+      // error...
+    }
   }
 
   void 
@@ -19,9 +23,11 @@ namespace buEngineSDK {
 
   void 
   SceneGraph::render(sf::RenderWindow& _window) {
+    m_scene.clear();
     for (auto& node : m_nodes) {
-      node.getActor().render(_window);
+      node.getActor().render(m_scene);
     }
+    m_scene.display();
   }
 
   void 
@@ -34,6 +40,8 @@ namespace buEngineSDK {
     worldOutlinerUI();
     propertiesUI();
     ImGui::Begin("Scene Graph");
+    sf::Sprite sprite(m_scene.getTexture());
+    ImGui::Image(sprite, sf::Vector2f(ImGui::GetWindowWidth(), ImGui::GetWindowHeight() ));
 
     ImGui::End();
   }
