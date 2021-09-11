@@ -35,6 +35,9 @@ namespace buEngineSDK {
 
 		sf::RectangleShape&
 		getShape();
+
+		sf::Texture & 
+		getTexture();
 	private:
 		void
 		vector2UI(string label,

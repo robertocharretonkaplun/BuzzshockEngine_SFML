@@ -2,6 +2,7 @@
 #include "CircleShape.h"
 #include "RectangleShape.h"
 #include "Transform.h"
+#include "Animator.h"
 namespace buEngineSDK {
   void 
   Actor::init() {
@@ -20,11 +21,30 @@ namespace buEngineSDK {
       if (component->getType() == buEngineSDK::ComponentType::E::CIRCLE_SHAPE) {
         auto circleShape = reinterpret_cast<CircleShape*>(component);
         circleShape->update(t);
-        //circleShape->getShape().setPosition(t->m_pos[0], t->m_pos[1]);
+
+        // Render animation
+        for (auto& subComponent :m_components) {
+          if (subComponent->getType() == buEngineSDK::ComponentType::E::ANIMATOR) {
+            auto animator = reinterpret_cast<Animator*>(subComponent);
+            circleShape->getShape().setTextureRect(animator->getuvRect());
+          }
+        }
       }
       if (component->getType() == buEngineSDK::ComponentType::E::RECTANGLE_SHAPE) {
         auto rectangleShape = reinterpret_cast<RectangleShape*>(component);
         rectangleShape->update(t);
+
+        // Render animation
+        for (auto& subComponent : m_components) {
+          if (subComponent->getType() == buEngineSDK::ComponentType::E::ANIMATOR) {
+            auto animator = reinterpret_cast<Animator*>(subComponent);
+            rectangleShape->getShape().setTextureRect(animator->getuvRect());
+          }
+        }
+      }
+      if (component->getType() == buEngineSDK::ComponentType::E::ANIMATOR) {
+        auto animator = reinterpret_cast<Animator*>(component);
+        animator->update();
       }
       component->update();
     }

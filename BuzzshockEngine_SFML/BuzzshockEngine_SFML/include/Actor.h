@@ -6,6 +6,7 @@ namespace buEngineSDK {
 	class CircleShape;
 	class RectangleShape;
 	class Transform;
+	class Animator;
 	class Actor	{
 	public:
 		Actor()  = default;

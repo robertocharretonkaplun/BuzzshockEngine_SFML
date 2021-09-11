@@ -1,6 +1,11 @@
 # BuzzshockEngine_SFML
 This repository is made for educational purposes, this project may include a full abstraction from SFML library and the basic managers and resources.
 
+## Updates 11 SEP 2021:
+- Animator Component: Now the animator component is able to set up animations in realtime with sprite sheets.
+- Rectangle shape component: Can set animator component.
+- Circle shape component: Can set animator component.
+
 ## Updates 6 SEP 2021:
 - Scene Graph: Scene now is render in special render target on the class.
 - Rectangle Shape: Center origin button feature.

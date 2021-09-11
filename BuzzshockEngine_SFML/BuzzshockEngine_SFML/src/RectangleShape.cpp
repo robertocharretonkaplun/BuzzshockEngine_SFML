@@ -100,6 +100,11 @@ namespace buEngineSDK {
   RectangleShape::getShape() {
     return m_shape;
   }
+
+  sf::Texture& 
+  RectangleShape::getTexture() {
+    return m_texture;
+  }
   
   void 
   RectangleShape::vector2UI(string label, float* values, string _id0, 

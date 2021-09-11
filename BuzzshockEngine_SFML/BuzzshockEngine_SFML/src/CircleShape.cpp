@@ -97,6 +97,11 @@ namespace buEngineSDK {
   CircleShape::getShape() {
     return m_shape;
   }
+
+  sf::Texture& 
+  CircleShape::getTexture() {
+    return m_texture;
+  }
   
   void 
   CircleShape::vector2UI(string label, float* values, string _id0, 

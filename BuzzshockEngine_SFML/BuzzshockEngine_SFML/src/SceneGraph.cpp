@@ -44,6 +44,11 @@ namespace buEngineSDK {
     ImGui::Image(sprite, sf::Vector2f(ImGui::GetWindowWidth(), ImGui::GetWindowHeight() ));
 
     ImGui::End();
+    ImGui::Begin("Console");
+    ImGui::End();
+    
+
+
   }
 
   void 
@@ -164,7 +169,18 @@ namespace buEngineSDK {
         // Add Animator component
         if (m_tempComponentType == buEngineSDK::ComponentType::ANIMATOR) {
           Animator* pAnimator = new Animator;
-          pAnimator->init();
+          
+          for (auto& component : node.getActor().getComponents()) {
+            if (component->getType() == buEngineSDK::ComponentType::E::CIRCLE_SHAPE) {
+              auto circleShape = reinterpret_cast<CircleShape*>(component);
+              pAnimator->init(circleShape->getTexture(), sf::Vector2u(3,8));
+            }
+            if (component->getType() == buEngineSDK::ComponentType::E::RECTANGLE_SHAPE) {
+              auto rectangleShape = reinterpret_cast<RectangleShape*>(component);
+              pAnimator->init(rectangleShape->getTexture(), sf::Vector2u(3,8));
+              //rectangleShape->render(_scene);
+            }
+          }
           node.getActor().addComponent(pAnimator);
         }
       }

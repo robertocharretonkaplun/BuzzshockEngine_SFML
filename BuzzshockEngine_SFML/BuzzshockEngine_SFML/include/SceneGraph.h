@@ -37,6 +37,7 @@ namespace buEngineSDK {
     
     vector<Node> &
     getNodes();
+
   private:
     void
     createEmptyActor();
@@ -51,5 +52,6 @@ namespace buEngineSDK {
     int m_currnode = 0;
     int m_tempComponentType;
     sf::RenderTexture m_scene;
+    sf::Texture m_texture;
   };
 }
