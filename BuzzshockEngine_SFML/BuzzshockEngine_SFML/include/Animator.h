@@ -1,5 +1,5 @@
 /**
- * @brief 
+ * @brief This class is in charge of animating the texture of circle and rectangle shapes.
  * Ref: https://www.youtube.com/watch?v=Aa8bXSq5LDE
  */
 #pragma once

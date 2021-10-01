@@ -53,5 +53,6 @@ namespace buEngineSDK {
     int m_tempComponentType;
     sf::RenderTexture m_scene;
     sf::Texture m_texture;
+    bool m_debugMode;
   };
 }
