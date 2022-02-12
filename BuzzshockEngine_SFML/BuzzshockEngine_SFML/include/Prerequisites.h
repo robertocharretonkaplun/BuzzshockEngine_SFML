@@ -11,3 +11,9 @@
 #include <vector>
 #include <Windows.h>
 using namespace std;
+
+enum EngineMode
+{
+  GameDevelopment = 0,
+  SecretHitlerG = 1,
+};

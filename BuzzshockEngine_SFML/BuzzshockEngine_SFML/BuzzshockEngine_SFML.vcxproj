@@ -177,6 +177,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="include\SecretHitler.cpp" />
     <ClCompile Include="src\Actor.cpp" />
     <ClCompile Include="src\Animator.cpp" />
     <ClCompile Include="src\BaseApp.cpp" />
@@ -187,6 +188,8 @@
     <ClCompile Include="src\Node.cpp" />
     <ClCompile Include="src\RectangleShape.cpp" />
     <ClCompile Include="src\SceneGraph.cpp" />
+    <ClCompile Include="src\SHLobby.cpp" />
+    <ClCompile Include="src\SHPlayer.cpp" />
     <ClCompile Include="src\Transform.cpp" />
     <ClCompile Include="src\Window.cpp" />
   </ItemGroup>
@@ -202,7 +205,14 @@
     <ClInclude Include="include\Prerequisites.h" />
     <ClInclude Include="include\RectangleShape.h" />
     <ClInclude Include="include\SceneGraph.h" />
+    <ClInclude Include="include\SecretHitler.h" />
+    <ClInclude Include="include\SecretHitlerDeck.h" />
+    <ClInclude Include="include\SHBeginScreen.h" />
+    <ClInclude Include="include\SHCommons.h" />
+    <ClInclude Include="include\SHLobby.h" />
+    <ClInclude Include="include\SHPlayer.h" />
     <ClInclude Include="include\Transform.h" />
+    <ClInclude Include="include\VotationEngine.h" />
     <ClInclude Include="include\Window.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

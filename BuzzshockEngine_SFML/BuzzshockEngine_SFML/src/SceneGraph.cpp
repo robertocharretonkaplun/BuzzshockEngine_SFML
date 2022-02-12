@@ -5,51 +5,160 @@
 #include "Animator.h"
 
 namespace buEngineSDK {
-  void 
-  SceneGraph::init(float _w, float _h) {
+  void
+    SceneGraph::init(float _w, float _h) {
     if (!m_scene.create(_w, _h))
     {
       // error...
     }
-  }
 
-  void 
-  SceneGraph::update() {
+    m_engineMode = EngineMode::GameDevelopment;
+    switch (m_engineMode)
+    {
+    case GameDevelopment:
+      break;
+    case SecretHitlerG:
+      m_secretHitlerGame.init();
 
-    for (auto& node : m_nodes) {
-      node.getActor().update();
+      m_texture2.loadFromFile("Data/Textures/member_Fas.png");
+      if (m_texture.loadFromFile("Data/Textures/Personaje05_Badgeron_Liberal.png")) {
+        cout << "Texture load with path found in : " << "Data/Textures/Personaje05_Badgeron_Liberal.png" << endl;
+
+        //m_shape.setTexture(&m_texture);
+      }
+      else {
+        cout << "Texture not found : " << "Data/Textures/Personaje05_Badgeron_Liberal.png" << endl;
+        string texPath = "Data/Textures/DefaultTexture.png";
+        //m_texPath = texPath;
+        cout << "Texture load with default path found in : " << texPath << endl;
+        m_texture.loadFromFile(texPath.c_str());
+        // m_shape.setTexture(&m_texture);
+      }
+      break;
+    default:
+      break;
     }
   }
 
-  void 
-  SceneGraph::render(sf::RenderWindow& _window) {
+  void
+    SceneGraph::update() {
+    switch (m_engineMode) {
+    case GameDevelopment:
+      for (auto& node : m_nodes) {
+        node.getActor().update();
+      }
+      break;
+    case SecretHitlerG:
+
+      break;
+    default:
+      break;
+    }
+  }
+
+  void
+    SceneGraph::render(sf::RenderWindow& _window) {
     m_scene.clear();
-    for (auto& node : m_nodes) {
-      node.getActor().render(m_scene);
+    switch (m_engineMode) {
+    case GameDevelopment:
+      for (auto& node : m_nodes) {
+        node.getActor().render(m_scene);
+      }
+      break;
+    case SecretHitlerG:
+      break;
+    default:
+      break;
     }
     m_scene.display();
   }
 
-  void 
-  SceneGraph::destroy() {
+  void
+    SceneGraph::destroy() {
   }
-  
-  void 
-  SceneGraph::ui() {
-    basicsUI();
-    worldOutlinerUI();
-    propertiesUI();
-    ImGui::Begin("Scene Graph");
+
+  void
+    SceneGraph::ui() {
+
+
     sf::Sprite sprite(m_scene.getTexture());
-    ImGui::Image(sprite, sf::Vector2f(ImGui::GetWindowWidth(), ImGui::GetWindowHeight() ));
+    //sf::Sprite sprite1(m_texture);
+    sf::Sprite sprite3(m_scene.getTexture());
+    static int e = 0;
+    sf::Vector2f cardSize = sf::Vector2f(130, 160);
+    string description = "Pending Cards: " + std::to_string(PendingCards);
+    switch (m_engineMode)
+    {
+    case GameDevelopment:
+      basicsUI();
+      worldOutlinerUI();
+      propertiesUI();
+      ImGui::Begin("Scene Graph");
+      ImGui::Image(sprite, sf::Vector2f(ImGui::GetWindowWidth(), ImGui::GetWindowHeight()));
 
-    ImGui::End();
-    ImGui::Begin("Console");
-    ImGui::End();
-    
+      ImGui::End();
+      ImGui::Begin("Console");
+      ImGui::End();
+      break;
+    case SecretHitlerG:
+      m_secretHitlerGame.render();
 
 
+      ImGui::Begin("Acciones");
+      ImGui::Button("A");
+      ImGui::SameLine();
+      ImGui::Button("B");
+      ImGui::SameLine();
+      ImGui::Button("C");
+      ImGui::End();
+      ImGui::Begin("Liberales");
+      ImGui::ImageButton(sprite3, sf::Vector2f(1300, 285));
+      ImGui::Text("Election Tracker");
+      ImGui::RadioButton("Fail -> ", &e, 0); ImGui::SameLine();
+      ImGui::RadioButton("Fail ->", &e, 1); ImGui::SameLine();
+      ImGui::RadioButton("Fail ->", &e, 2); ImGui::SameLine();
+      ImGui::RadioButton("Reveal and pass | Top Policy", &e, 3);
+      ImGui::End();
+      ImGui::Begin("Fascistas");
+      ImGui::Image(sprite3, sf::Vector2f(1300, 285));
+      ImGui::End();
+      ImGui::Begin("Baraja");
+
+      
+      ImGui::Text(description.c_str());
+      if (ImGui::Button("Tomar 1 carta")) {
+        PendingCards -= 1;
+      }
+      
+      ImGui::End();
+      ImGui::Begin("Mail Box");
+      ImGui::Text("Messages from: ");
+
+      ImGui::End();
+      ImGui::Begin("Jugadores");
+      
+      ImGui::ImageButton(m_texture, cardSize); ImGui::SameLine();
+      ImGui::ImageButton(m_texture2, cardSize);
+      
+      ImGui::ImageButton(m_texture, cardSize); ImGui::SameLine();
+      ImGui::ImageButton(m_texture2, cardSize);
+      
+      ImGui::ImageButton(m_texture, cardSize); ImGui::SameLine();
+      ImGui::ImageButton(m_texture2, cardSize);
+      
+      ImGui::ImageButton(m_texture, cardSize); ImGui::SameLine();
+      ImGui::ImageButton(m_texture2, cardSize);
+      
+      ImGui::ImageButton(m_texture, cardSize); ImGui::SameLine();
+      ImGui::ImageButton(m_texture2, cardSize);
+      //
+      ImGui::End();
+      break;
+    default:
+      break;
+    }
   }
+
 
   void 
   SceneGraph::basicsUI() {

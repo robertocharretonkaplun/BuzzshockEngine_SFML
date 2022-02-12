@@ -1,6 +1,7 @@
 #pragma once
 #include <Prerequisites.h>
 #include <Node.h>
+#include "SecretHitler.h"
 namespace buEngineSDK {
   class Transform;
   class CircleShape;
@@ -53,6 +54,12 @@ namespace buEngineSDK {
     int m_tempComponentType;
     sf::RenderTexture m_scene;
     sf::Texture m_texture;
+    sf::Texture m_texture2;
     bool m_debugMode;
+    bool m_secretHitlerMode;
+    EngineMode m_engineMode = EngineMode::GameDevelopment;
+    int PendingCards = 10;
+
+    SecretHitler m_secretHitlerGame;
   };
 }

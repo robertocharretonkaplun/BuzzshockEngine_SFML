@@ -43,6 +43,9 @@
     <Filter Include="Source Files\ECS">
       <UniqueIdentifier>{4611f7f1-1fa4-49f8-ad18-1035246df81a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\SecretHitler">
+      <UniqueIdentifier>{bc04daca-449e-4554-a6fc-72485e310863}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp">
@@ -80,6 +83,12 @@
     </ClCompile>
     <ClCompile Include="src\Animator.cpp">
       <Filter>Source Files\ECS</Filter>
+    </ClCompile>
+    <ClCompile Include="include\SecretHitler.cpp">
+      <Filter>Header Files\SecretHitler</Filter>
+    </ClCompile>
+    <ClCompile Include="src\SHLobby.cpp">
+      <Filter>Header Files\SecretHitler</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -121,6 +130,27 @@
     </ClInclude>
     <ClInclude Include="include\Animator.h">
       <Filter>Header Files\ECS</Filter>
+    </ClInclude>
+    <ClInclude Include="include\SecretHitler.h">
+      <Filter>Header Files\SecretHitler</Filter>
+    </ClInclude>
+    <ClInclude Include="include\SecretHitlerDeck.h">
+      <Filter>Header Files\SecretHitler</Filter>
+    </ClInclude>
+    <ClInclude Include="include\SHPlayer.h">
+      <Filter>Header Files\SecretHitler</Filter>
+    </ClInclude>
+    <ClInclude Include="include\SHCommons.h">
+      <Filter>Header Files\SecretHitler</Filter>
+    </ClInclude>
+    <ClInclude Include="include\VotationEngine.h">
+      <Filter>Header Files\SecretHitler</Filter>
+    </ClInclude>
+    <ClInclude Include="include\SHBeginScreen.h">
+      <Filter>Header Files\SecretHitler</Filter>
+    </ClInclude>
+    <ClInclude Include="include\SHLobby.h">
+      <Filter>Header Files\SecretHitler</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
