@@ -17,6 +17,7 @@ namespace buEngineSDK {
 
   void 
   Transform::update() {
+    
   }
 
   void 
@@ -45,6 +46,12 @@ namespace buEngineSDK {
   }
 
   void 
+  Transform::translate(Vector2F _vec) {
+    m_pos[0] = _vec.x;
+    m_pos[1] = _vec.y;
+  }
+
+  void
   Transform::vector2UI(string label, float* values, string _id0, string _id1,
                        float resetValues, float columnWidth) {
     ImGui::Text(label.c_str());

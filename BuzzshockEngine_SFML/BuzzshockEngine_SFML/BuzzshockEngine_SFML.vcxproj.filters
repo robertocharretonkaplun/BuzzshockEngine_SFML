@@ -90,6 +90,9 @@
     <ClCompile Include="src\SHLobby.cpp">
       <Filter>Header Files\SecretHitler</Filter>
     </ClCompile>
+    <ClCompile Include="src\SHPlayer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\Prerequisites.h">
@@ -151,6 +154,9 @@
     </ClInclude>
     <ClInclude Include="include\SHLobby.h">
       <Filter>Header Files\SecretHitler</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Waypoint.h">
+      <Filter>Header Files\ECS</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

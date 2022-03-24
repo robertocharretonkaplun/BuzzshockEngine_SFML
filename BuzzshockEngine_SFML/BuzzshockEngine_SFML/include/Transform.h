@@ -27,6 +27,8 @@ namespace buEngineSDK {
 		getName() override;
 
 
+		void
+		translate(Vector2F _vec);
 	private:
 		void
 		vector2UI(string label,

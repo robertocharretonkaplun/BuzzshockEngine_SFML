@@ -75,5 +75,10 @@ namespace buEngineSDK {
 		Actor * m_child;
 
 		Transform* t;
+
+		float time = 0.5f;
+		Vector2F target;
+		Vector2F tmpVec;
+		Vector2F dir;// = target - tmpPos;
 	};
 }

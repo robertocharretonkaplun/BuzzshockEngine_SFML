@@ -213,6 +213,7 @@
     <ClInclude Include="include\SHPlayer.h" />
     <ClInclude Include="include\Transform.h" />
     <ClInclude Include="include\VotationEngine.h" />
+    <ClInclude Include="include\Waypoint.h" />
     <ClInclude Include="include\Window.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
