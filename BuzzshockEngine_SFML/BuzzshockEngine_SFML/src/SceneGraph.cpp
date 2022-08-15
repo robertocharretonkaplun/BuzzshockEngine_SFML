@@ -99,6 +99,8 @@ namespace buEngineSDK {
       ImGui::End();
       ImGui::Begin("Console");
       ImGui::End();
+
+
       break;
     case SecretHitlerG:
       m_secretHitlerGame.render();

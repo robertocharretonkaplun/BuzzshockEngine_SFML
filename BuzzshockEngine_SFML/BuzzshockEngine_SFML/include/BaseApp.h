@@ -29,5 +29,6 @@ namespace buEngineSDK {
     MainMenu();
 	private:
     SceneGraph m_graphman;
+    sf::View view;
 	};
 }
